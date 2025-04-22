@@ -1,6 +1,6 @@
 public class arrangecoins {
     public static void main(String[] args) {
-        int n=2147483647 ;
+        int n=213647 ;
         System.out.println(calculate(n));
     }
     public static int calculate(int n){

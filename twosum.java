@@ -1,26 +1,24 @@
 //import java.util.Scanner;
 
+import java.util.Arrays;
+import java.util.HashMap;
+
 public class twosum {
     public static void main(String[] args) {
         int[] arr={1,5,9,7,3};
-        int target=20;
-        int i=0,j=1;
-        for( i=0;i<4;i++){
-            for( j =1;j<=4;j++){
-                if(arr[i]+arr[j]==target){
-                    System.out.println(arr[i]+"+"+arr[j]+"="+target);
-                } 
-                    // else{
-                    //     System.out.println("No matched item found");
-                    // }
-
+        System.out.println(Arrays.toString(find(arr,16)));
+    }
+    static int[] find(int[] arr,int target){
+        HashMap<Integer,Integer> map =  new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            int diff = target - arr[i];
+            if(map.containsKey(diff)){
+                return new int[]{map.get(diff),i};
             }
-            
+            else{
+                map.put(arr[i],i);
+            }
         }
-        if(arr[i-1]+arr[j-1]!=target){
-            System.err.println("target not found");
-        }
-        
-
+        return new int[]{-1,-1};
     }
 }
