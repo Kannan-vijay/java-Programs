@@ -4,6 +4,39 @@ public class zohoPreparation {
     public static void main(String[] args) {
         rotate();
     }
+    static int findReverseIndex(String s,String k){
+        char[] key = k.toCharArray();
+        int i = s.length()-1;
+        while (i>=0) {
+            if(s.charAt(i) == key[0]){
+                if(indexcheck(i, s, key)){
+                    return i-key.length+2;
+                }
+            }
+            i--;
+        }
+        return -1;
+    }
+    static boolean indexcheck(int start,String s,char[] key){
+        int j = 0;
+        int n = key.length -1;
+        for (int i = start; (i >= start - n && i>=0); i--) {
+            if(s.charAt(i) != key[j]){
+                return false;
+            }
+            j++;
+        }
+        return j==key.length;
+    }
+    static void reverse(char[] arr){
+        int i=0,j=arr.length-1;
+        while (i<j) {
+            char temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;j--;
+        }
+    }
     static void kthSmallerElements(){
         int[][] mat = {
             {1, 2, 3}, 

@@ -1,6 +1,28 @@
 public class patterns {
     public static void main(String[] args) {
-        pattern14(5);
+        pattern15(5);
+    }
+    static void pattern15(int n){
+        //                  5
+        //              9   4
+        //         12   8   3
+        //     14  11   7   2
+        // 15  13  10   6   1
+        int num = n;
+        for (int i = 0; i < n; i++) {
+            int temp = num;
+            for (int j = 0; j < n; j++) {
+                if (i+j<n-1) {
+                    System.out.print("    ");
+                }
+                else{
+                    System.out.printf("%4d",temp);
+                    temp-=(j+2);
+                }
+            }
+            System.out.println();
+            num+=(n-1)-i;
+        }
     }
     static void pattern14(int n){
         // 1  2  3  4  5
