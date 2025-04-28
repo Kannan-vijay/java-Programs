@@ -2,6 +2,192 @@ public class patterns {
     public static void main(String[] args) {
         pattern15(5);
     }
+    static void pattern25(int n){
+        // 1 
+        // 0 1
+        // 1 0 1
+        // 0 1 0 1
+        // 1 0 1 0 1
+        int num = 1;
+        for (int i = 0; i < n; i++) {
+            int temp = num;
+            for (int j = 0; j <= i; j++) {
+                System.out.print(temp+" ");
+                temp = (temp == 0)?1:0;
+            }
+            System.out.println();
+            num = (num == 0)? 1 : 0;
+        }
+    }
+    static void pattern24(int n){
+        // * * * * * 
+        // *       *
+        // *       *
+        // *       *
+        // * * * * *
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if(i==0 || i==n-1 || j==0 || j==n-1){
+                    System.out.print("* ");
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    static void pattern23(int n){
+        // * * * * * 
+        //   * * * * *
+        //     * * * * *
+        //       * * * * *
+        //         * * * * *
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < i+n; j++) {
+                if(j<i){
+                    System.out.print("  ");
+                }
+                else{
+                    System.out.print("* ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    static void pattern22(int n){
+        // 1 2 3 4 5 
+        //   2 3 4
+        //     3
+        //   2 3 4
+        // 1 2 3 4 5
+        for (int i = 0; i < 2*n-1; i++) {
+            for (int j = 0; j < 2*n-1; j++) {
+                if((j>=i && i+j<2*n-1)|| (i>=n && (j<=i && i+j>=2*n-2))){
+                    System.out.print(j+1+" ");
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    static void pattern21(int n){
+        // * * * * * * * * * 
+        //   *           *
+        //     *       *
+        //       *   *
+        //         *
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < 2*n-1; j++) {
+                if(i==0 || i==j || i+j==2*n-2){
+                    System.out.print("* ");
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    static void pattern20(int n){
+        // * * * * * 
+        //   *   *
+        //     *
+        //   *   *
+        // * * * * *
+        for (int i = 0; i < 2*n-1; i++) {
+            for (int j = 0; j < 2*n-1; j++) {
+                if(i==j || i==0 || i==2*n-2 || i+j == 2*n-2){
+                    System.out.print("* ");
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    static void pattern19(int n){
+        // * 
+        // * *
+        // * * *
+        // * * * *
+        // * * * * *
+        // * * * *
+        // * * *
+        // * *
+        // *
+        for (int i = 0; i < 2*n-1; i++) {
+            for (int j = 0; (j <= i && i+j<=2*n-2); j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    static void pattern18(int n){
+        //         *
+        //       *   *
+        //     *       *
+        //   *           *
+        // *               *
+        //   *           *
+        //     *       *
+        //       *   *
+        //         *
+        for (int i = 0; i < n*2-1; i++) {
+            for (int j = 0; j < n*2-1; j++) {
+                if((i+j == n-1 || i+j == n-1+(2*i)) || (i>=n && ( i % n == j-1 || i+j == 3*n-3))){
+                    System.out.print("* ");
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    static void pattern17(int n){
+        //         *
+        //       *   *
+        //     *       *
+        //   *           *
+        // * * * * * * * * *
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n*2-1; j++) {
+                if(i+j == n-1 || i==n-1 || i+j == n-1+(i*2)){
+                    System.out.print("* ");
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    static void pattern16(int n){
+        // *                 * 
+        // * *             * *
+        // * * *         * * *
+        // * * * *     * * * *
+        // * * * * * * * * * *
+        // * * * *     * * * *
+        // * * *         * * *
+        // * *             * *
+        // *                 *
+        for (int i = 0; i < n*2 -1 ; i++) {
+            for (int j = 0; j < n*2 ; j++) {
+                if((i+j<= i*2 || i+j>= n*2-1) && (i+j<=n*2-2 || i+j>2*i)){
+                    System.out.print("* ");
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
     static void pattern15(int n){
         //                  5
         //              9   4
