@@ -4,6 +4,167 @@ public class zohoPreparation {
     public static void main(String[] args) {
         rotate();
     }
+    static void rearrangePosNeg(){
+        int[] arr = {1,2,5,-5, -2, -3, -4, 5, -6,6};
+        int[] res = new int[arr.length];
+        int posidx = 0,negidx = 1;
+        for (int i = 0; i < res.length; i++) {
+            if(arr[i]<0){
+                res[negidx] = arr[i];
+                negidx+=2;
+            }
+            else{
+                res[posidx] = arr[i];
+                posidx+=2;
+            }
+        }
+        System.out.println(Arrays.toString(res));
+    }
+    static void addDate(){
+        int date = 7,month = 12,year = 2023;
+        int incrementDate = 35;
+        int[] mon = {31,28,31,30,31,30,31,31,30,31,30,31};
+        if((year%4==0 && year%100!=0) || year%400 == 0){
+            mon[1] = 29;
+        }
+        while (incrementDate>0) {
+            int temp = date + incrementDate;
+            if(temp > mon[month-1]){
+                incrementDate -= (mon[month-1] - date);
+                date = 0;
+                month++;
+            }
+            else{
+                date = temp;
+                incrementDate = 0;
+            }
+            if(month == 13){
+                month = 1;
+                year++;
+            }
+        }
+        System.out.println(date+"/"+month+"/"+year);
+    }
+    static void moveZeros(){
+        int[] arr = {1,2,4,5,0,1,0,1,2,0,1,5,4,8};
+        int i = 0,j = 0;
+        while (j<arr.length) {
+            if(arr[i] == 0 && arr[j]!=0){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+            }
+            if(arr[i]!=0){
+                i++;
+            }
+            j++;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+    static void addDigittoAll(){
+        int digit = 4;
+        int number = 2875;
+        int reverseNum = 0;
+        while (number>0) {
+            reverseNum = reverseNum*10+(number%10);
+            number/=10;
+        }
+        int resNum = 0;
+        while (reverseNum>0) {
+            int currdigit = (reverseNum%10)+digit;
+            resNum = (int) (resNum * Math.pow(10, String.valueOf(currdigit).length())) + currdigit;
+            reverseNum/=10;
+        }
+        System.out.println(resNum);
+    }
+    static void seperateZoroOnes(){
+        int[] arr = {0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,0,0,0,1};
+        int i = 0,j = arr.length-1;
+        while (i<j) {
+            if(arr[i] == 1){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                j--;
+            }
+            else{
+                i++;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+    static void sortArrayAscendingDecending(){
+        int[] arr = {5 ,8 ,11 ,6, 2, 1, 7};
+        Arrays.sort(arr);
+        int i = 0,j = 0;
+        while (j<arr.length) {
+            if(arr[j]%2 != 0){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+            }
+            j++;
+        }
+        j--;
+        while (i<j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;j--;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+    static void mergeSortedArraysWithOutRepeating(){
+        int[] arr1 = {1,2,2,2,3,3,3,4,5,6};
+        int[] arr2 = {2,2,3,3,4,5,5,6};
+        int n = arr1.length;
+        int m = arr2.length;
+        ArrayList<Integer> res = new ArrayList<>();
+        int i = 0,j = 0;
+        while(i<arr1.length && j<arr2.length){
+            if(arr1[i] == arr2[j]){
+                int num = arr1[i];
+                res.add(num);
+                while (i<n && arr1[i]==num) {
+                    i++;
+                }
+                while (j<m && arr2[j]==num) {
+                    j++;
+                }
+            }
+            else if(arr1[i]<arr2[j]){
+                int num = arr1[i];
+                res.add(num);
+                while (i<n && arr1[i]==num) {
+                    i++;
+                }
+            }
+            else{
+                int num = arr2[j];
+                res.add(num);
+                while (j<m && arr2[j]==num) {
+                    j++;
+                }
+            }
+        }
+        while (i<n) {
+            int num = arr1[i];
+            res.add(num);
+            while (i<n && arr1[i]==num) {
+                i++;
+            }
+        }
+        while (j<m) {
+            int num = arr2[j];
+            res.add(num);
+            while (j<m && arr2[j]==num) {
+                j++;
+            }
+        }
+        System.out.println(res);
+    }
     static int findReverseIndex(String s,String k){
         char[] key = k.toCharArray();
         int i = s.length()-1;
